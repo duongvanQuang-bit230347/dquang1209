@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.0</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>com.lao</groupId>
+  <artifactId>base</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>lao-base</name>
+  <description>lao-base</description>
+
+  <properties>
+    <!-- CORE VERSION -->
+    <lao-core.version>0.0.1-SNAPSHOT</lao-core.version>
+    <!-- BASED -->
+    <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+    <java.version>17</java.version>
+    <spring-cloud.version>2023.0.1</spring-cloud.version>
+    <!-- UTILITIES -->
+    <commons.collections4.version>4.4</commons.collections4.version>
+    <commons-lang3.version>3.12.0</commons-lang3.version>
+    <commons-codec.version>1.17.0</commons-codec.version>
+    <json.version>20240303</json.version>
+    <!-- QOL -->
+    <lombok.version>1.18.32</lombok.version>
+    <mapstruct.version>1.5.5.Final</mapstruct.version>
+    <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+    <!-- SWAGGER -->
+    <springdoc-openapi-starter-webmvc-ui.version>2.5.0</springdoc-openapi-starter-webmvc-ui.version>
+    <!-- JJWT -->
+    <jjwt.version>0.12.5</jjwt.version>
+    <!-- TRACING -->
+    <opentelemetry-api.version>1.37.0</opentelemetry-api.version>
+    <!-- OTHER -->
+    <spotbugs-annotations.version>4.8.6</spotbugs-annotations.version>
+  </properties>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>./lao-core</module>
+    <!-- BUSINESS SERVICES -->
+    <module>./lao-ads-svc</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- CORE COMMON -->
+      <dependency>
+        <groupId>com.lao</groupId>
+        <artifactId>core</artifactId>
+        <version>${lao-core.version}</version>
+      </dependency>
+      <!-- POM -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- QOL -->
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok-mapstruct-binding</artifactId>
+        <version>${lombok-mapstruct-binding.version}</version>
+      </dependency>
+      <!-- UTILITIES -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>${commons.collections4.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>${json.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>${commons-codec.version}</version>
+      </dependency>
+      <!-- SWAGGER -->
+      <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
+      </dependency>
+      <!-- JJWT -->
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-api</artifactId>
+        <version>${jjwt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-impl</artifactId>
+        <version>${jjwt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-jackson</artifactId>
+        <version>${jjwt.version}</version>
+      </dependency>
+      <!-- TRACING -->
+      <dependency>
+        <groupId>io.opentelemetry</groupId>
+        <artifactId>opentelemetry-api</artifactId>
+        <version>${opentelemetry-api.version}</version>
+      </dependency>
+      <!-- OTHER -->
+      <dependency>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-annotations</artifactId>
+        <version>${spotbugs-annotations.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
